@@ -1,42 +1,11 @@
-var express = require('express');
-var router = express.Router();
-const fakeUa = require('fake-useragent');
-const request = require('request');
+var express = require('express')
+var router = express.Router()
 
-/* GET home page. */
+/* GET scrape listing. */
 router.get('/', function(req, res, next) {
-	//request.get('https://gimmeproxy.com/api/getProxy',{json:true},function(err,response){
-        //if(!err){
-        	var url = 'http://nepalstock.com.np';
-			var headers = {
-				'User-Agent': fakeUa(),
-				'Host': 'google.com',
-				//'Referer': response.body.ip
-			};
-			console.log(headers);
-			request.get({ url: url, headers: headers }, function (err, resp, body) {
-			  	res.send(resp);
-			});
+	 var date = new Date()
+  var year = date.getFullYear()
+  res.render('index', { title: 'NP Forex Commodity', year: year });
+})
 
-        //}
-    //});
-	/*var url = 'http://example.com';
-	var headers = {
-	    'User-Agent': fakeUa(),
-	    'Host': ip,
-	    'Referer': ip
-	};
-
-	request.get({ url: url, headers: headers }, function (err, resp, body) {
-		//console.log(res);
-		//console.log(err);
-	  	//result = res;
-	  	res.send(resp);
-	});*/
-	//res.send(generateRandomProxy());
-	//res.send(result);
-});
-
-
-
-module.exports = router;
+module.exports = router

@@ -5,7 +5,17 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var aboutRouter = require('./routes/about');
+var termsOfUseRouter = require('./routes/terms-of-use');
+var disclaimerRouter = require('./routes/disclaimer');
+var forexRouter = require('./routes/forex');
+var forexCronRouter = require('./routes/forex-cron');
+var commodityRouter = require('./routes/commodity');
+var commodityCronRouter = require('./routes/commodity-cron');
+var todayspriceRouter = require('./routes/todaysprice');
+var todayspriceCronRouter = require('./routes/todaysprice-cron');
+var stockliveRouter = require('./routes/stocklive');
+var cronRouter = require('./routes/npfc');
 
 var app = express();
 
@@ -20,7 +30,17 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/about', aboutRouter);
+app.use('/terms-of-use', termsOfUseRouter);
+app.use('/disclaimer', disclaimerRouter);
+app.use('/forex', forexRouter);
+app.use('/forex-cron', forexCronRouter);
+app.use('/commodity', commodityRouter);
+app.use('/commodity-cron', commodityCronRouter);
+app.use('/todaysprice', todayspriceRouter);
+app.use('/todaysprice-cron', todayspriceCronRouter);
+app.use('/stocklive', stockliveRouter);
+app.use('/npfc', cronRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
