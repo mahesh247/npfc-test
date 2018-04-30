@@ -1,12 +1,12 @@
-var express = require('express');
-var router = express.Router();
-const fakeUa = require('fake-useragent');
-const request = require('request');
-var cheerio = require('cheerio');
-var MongoClient = require('mongodb').MongoClient
-var MongoURL    = "mongodb://stockxuser:stockxuser@ds125479.mlab.com:25479/stockx"
-var CronJob     = require('cron').CronJob
-var limit = 172
+var express     = require('express');
+var router      = express.Router();
+const fakeUa    = require('fake-useragent');
+const request   = require('request');
+var cheerio     = require('cheerio');
+var MongoClient = require('mongodb').MongoClient;
+var MongoURL    = "mongodb://stockxuser:stockxuser@ds125479.mlab.com:25479/stockx";
+var CronJob     = require('cron').CronJob;
+var limit = 168;
 
 /*var monthName = [ 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ]
 
@@ -23,10 +23,10 @@ router.get('/', function(req, res, next) {
 	MongoClient.connect(MongoURL, function(err, db) {
 		if (err) throw err;
 		var dbo = db.db("stockx");
-		dbo.collection("stocklive").find({}).sort({$natural : -1}).limit(limit).toArray(function(err, result) {
+		dbo.collection("todaysprice").find({}).sort({$natural : -1}).limit(limit).toArray(function(err, result) {
 		if (err) throw err;
 			things = result.reverse();
-			res.send(things)
+			res.send(things);
 			db.close();
 		});
 	}); 
