@@ -6,7 +6,7 @@ var cheerio = require('cheerio');
 var MongoClient = require('mongodb').MongoClient
 var MongoURL    = "mongodb://stockxuser:stockxuser@ds125479.mlab.com:25479/stockx"
 var CronJob     = require('cron').CronJob
-var limit = 172
+var limit = 135
 
 /*var monthName = [ 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ]
 

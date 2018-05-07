@@ -20,13 +20,13 @@ function checkZeroto9(num){
 router.get('/', function(req, res, next) {
 	request.get('https://gimmeproxy.com/api/getProxy',{json:true},function(err,response){
         if(!err){
-        	var url = 'http://nepalstock.com.np';
+        	var url = 'http://nepalstock.com/stocklive';
 			var headers = {
 				'User-Agent': fakeUa(),
 				//'Host': 'google.com',
 				'Host': response.body.ip
 			};
-			console.log(headers);
+			//console.log(headers);
 			request.get({ url: url, headers: headers }, function (err, resp, body) {
 			  	//res.send(body);
 			  	$ = cheerio.load(body);
